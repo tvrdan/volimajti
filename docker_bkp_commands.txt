@@ -1,0 +1,5 @@
+Backup a container:
+docker run --rm --volumes-from <container> -v $(pwd):/backup busybox tar cvfz /backup/backup.tar.gz <container-path>
+
+Restore a container from backup:
+docker run --rm --volumes-from <container> -v $(pwd):/backup busybox sh -c "cd <container-path> && tar xvfz /backup/backup.tar.gz --strip 1"	Restore a container from backup
